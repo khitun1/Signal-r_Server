@@ -25,9 +25,9 @@ namespace Signal_r.Controllers
             await Groups.AddToGroupAsync(Context.ConnectionId, group);
         }
 
-        public async Task NewMessage(string groupName, string message)
+        public async Task NewMessage(string groupName, string message, string userName)
         {
-            await Clients.Group(groupName).SendAsync("newMessage", message);
+            await Clients.Group(groupName).SendAsync("newMessage", message, userName);
         }
     }
 
